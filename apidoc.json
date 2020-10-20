@@ -1,0 +1,12 @@
+{
+    "name": "goomer-lista-rango",
+    "version": "1.0.0",
+    "description": "Documentação da API do projeto Goomer Lista Rango",
+    "title": "Goomer Lista Rango",
+    "url" : "",
+    "sampleUrl": false,
+    "template": {
+        "forceLanguage": "pt_br"
+    }
+  }
+

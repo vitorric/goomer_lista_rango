@@ -1,0 +1,19 @@
+image: ilyasemenov/gitlab-ci-git-push
+image: node:10.14.0
+services:
+  #- mongo
+variables:
+  #MONGO_URI: 'mongodb://unitTest:E7#71#27@ds139362.mlab.com:39362/onecore'
+cache:
+  paths:
+  - node_modules/
+stages:
+- build
+#- test
+# - deploy
+test_api_job:
+  stage: build
+  script:
+    - npm install --silent
+    - npm test
+ #  - npm install --silent

@@ -1,0 +1,28 @@
+{
+  "name": "goomer-lista-rango",
+  "version": "1.0.0",
+  "description": "API RESTful capaz de gerenciar os restaurantes e os produtos do seu cardápio",
+  "main": "app.js",
+  "author": "Vitor Ricardo",
+  "scripts": {
+    "gen-doc": "apidoc -i src/ -o apidoc/"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "mongoose": "^5.9.16",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-http-bearer": "^1.0.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "docdash": "^1.2.0",
+    "eslint": "^7.1.0"
+  }
+}

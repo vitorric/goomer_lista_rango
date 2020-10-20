@@ -3,11 +3,9 @@ const { Produto } = require('../../schemas/produto'),
 
 
 exports.criarProdutoRepository = async produto => {
-  try {
-    return Produto.create(produto).catch(error => console.log(error));
-  } catch (error) {
+  return Produto.create(produto).catch(error => {
     console.log('Error in criarProdutoRepository: ', error);
-  }
+  });
 };
 
 exports.obterProdutoRepository = produtoId => {

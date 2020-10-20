@@ -5,7 +5,9 @@
   "main": "app.js",
   "author": "Vitor Ricardo",
   "scripts": {
-    "gen-doc": "apidoc -i src/ -o apidoc/"
+    "gen-doc": "apidoc -i src/ -o apidoc/",
+    "test": "NODE_ENV=test mocha ./test/index.js  --timeout 50000 --exit",
+    "test-cover": "nyc --reporter=html --reporter=text NODE_ENV=test mocha ./test/index.js --reporter mochawesome --reporter-options ,reportFilename=index.html --timeout 50000 --exit"
   },
   "license": "ISC",
   "dependencies": {
@@ -22,7 +24,13 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "docdash": "^1.2.0",
-    "eslint": "^7.1.0"
+    "eslint": "^7.1.0",
+    "mocha": "^8.0.1",
+    "mochawesome": "^6.1.1",
+    "nyc": "^15.1.0",
+    "supertest": "^4.0.2"
   }
 }

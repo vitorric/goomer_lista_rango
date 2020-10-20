@@ -1,4 +1,8 @@
 node_modules
 package-lock.json
 .vscode
+.env.local
+mochawesome-report
+coverage
 apidoc
+.nyc_output

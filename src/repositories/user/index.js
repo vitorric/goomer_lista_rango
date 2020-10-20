@@ -2,11 +2,9 @@ const { User } = require('../../schemas/user'),
   { ObjectIdCast } = require('../../utils');
 
 exports.createUserRepository = async user => {
-  try {
-    return User.create(user);
-  } catch (error) {
-    console.log('Error in createUserRepository: ', error);
-  }
+  return User.create(user).catch(error => {
+    console.log('Error in criarProdutoRepository: ', error);
+  });
 };
 
 exports.getUserRepositoryByEmail = email => {

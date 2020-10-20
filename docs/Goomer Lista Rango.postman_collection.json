@@ -1,0 +1,659 @@
+{
+	"info": {
+		"_postman_id": "410dc1f6-c754-446c-a8e3-b7046aea153e",
+		"name": "Goomer Lista Rango",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuário",
+			"item": [
+				{
+					"name": "Criar Usuário",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"vitorricardo2@outlook.com\",\n    \"nome\": \"Vitor Ricardo\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3025/api/auth/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3025",
+							"path": [
+								"api",
+								"auth",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Usuário",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"vitorricardo@outlook.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3025/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3025",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Restaurante",
+			"item": [
+				{
+					"name": "Alterar Restaurante",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7Il9pZCI6IjVmOGRhN2JlNGQ3YzUxMzFlNDc2MTM4MyJ9LCJleHAiOjE2MDMxMTk3NjQ1NzAsImlhdCI6MTYwMzExOTE2NH0.0jU1ocrO8l8EBzrV03fFtsQgM9o8vPwo06h81L7VXR4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "restaurante",
+									"value": "{\n    \"restauranteId\": \"5f8e358fbb84af458493721f\",\n    \"nome\": \"Goomer2\",\n    \"endereco\": {\n        \"rua\": \"R. Martinica\",\n        \"numero\": \"460\",\n        \"bairro\": \"Jardim America\",\n        \"cidade\": \"Sorocaba\",\n        \"estado\": \"SP\",\n        \"cep\": \"18046-805\"\n    },\n    \"horarios_funcionamento\": [{\n      \"dia_inicio\": \"Segunda\",\n      \"dia_fim\": \"Sexta\",\n      \"horario_inicio\": \"1900-01-01T19:00:00\",\n      \"horario_fim\": \"1900-01-01T23:00:00\"  \n    },{\n      \"dia_inicio\": \"Sábado\",\n      \"dia_fim\": \"Domingo\",\n      \"horario_inicio\": \"1900-01-01T11:00:00\",\n      \"horario_fim\": \"1900-01-01T21:00:00\"  \n    }]\n}",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/C:/Users/vitor/Desktop/goomer_lista_rango/imagens_teste_upload/logo_goomer.png"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3025/api/user/restaurante/alterar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3025",
+							"path": [
+								"api",
+								"user",
+								"restaurante",
+								"alterar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Restaurante",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7Il9pZCI6IjVmOGRhN2JlNGQ3YzUxMzFlNDc2MTM4MyJ9LCJleHAiOjE2MDMxMTk3NjQ1NzAsImlhdCI6MTYwMzExOTE2NH0.0jU1ocrO8l8EBzrV03fFtsQgM9o8vPwo06h81L7VXR4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"restauranteId\": \"5f8e358fbb84af458493721f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3025/api/user/restaurante/deletar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3025",
+							"path": [
+								"api",
+								"user",
+								"restaurante",
+								"deletar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Restaurante",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7Il9pZCI6IjVmOGRhN2JlNGQ3YzUxMzFlNDc2MTM4MyJ9LCJleHAiOjE2MDMxMTk3NjQ1NzAsImlhdCI6MTYwMzExOTE2NH0.0jU1ocrO8l8EBzrV03fFtsQgM9o8vPwo06h81L7VXR4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"G\",\r\n    \"page\": 1,\r\n    \"pageSize\": 25\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3025/api/user/restaurante/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3025",
+							"path": [
+								"api",
+								"user",
+								"restaurante",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos Restaurante",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7Il9pZCI6IjVmOGRhN2JlNGQ3YzUxMzFlNDc2MTM4MyJ9LCJleHAiOjE2MDMxMTk3NjQ1NzAsImlhdCI6MTYwMzExOTE2NH0.0jU1ocrO8l8EBzrV03fFtsQgM9o8vPwo06h81L7VXR4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3025/api/user/restaurante/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3025",
+							"path": [
+								"api",
+								"user",
+								"restaurante",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Restaurante",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7Il9pZCI6IjVmOGRhN2JlNGQ3YzUxMzFlNDc2MTM4MyJ9LCJleHAiOjE2MDMxMTk3NjQ1NzAsImlhdCI6MTYwMzExOTE2NH0.0jU1ocrO8l8EBzrV03fFtsQgM9o8vPwo06h81L7VXR4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"restauranteId\": \"5f8e38b9d0065144b0bf5140\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3025/api/user/restaurante/obter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3025",
+							"path": [
+								"api",
+								"user",
+								"restaurante",
+								"obter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Restaurante",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7Il9pZCI6IjVmOGRhN2JlNGQ3YzUxMzFlNDc2MTM4MyJ9LCJleHAiOjE2MDMxMTk2MzgxNTMsImlhdCI6MTYwMzExOTAzOH0.9az_BJzkhAfQNHUXUJmMzETchXZ69N_kV6FjRVyhYgs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/C:/Users/vitor/Desktop/goomer_lista_rango/imagens_teste_upload/logo_goomer.png"
+								},
+								{
+									"key": "restaurante",
+									"value": "{\n    \"nome\": \"Goomer\",\n    \"endereco\": {\n        \"rua\": \"R. Martinica\",\n        \"numero\": \"460\",\n        \"bairro\": \"Jardim America\",\n        \"cidade\": \"Sorocaba\",\n        \"estado\": \"SP\",\n        \"cep\": \"18046-805\"\n    },\n    \"horarios_funcionamento\": [{\n      \"dia_inicio\": \"Segunda\",\n      \"dia_fim\": \"Sexta\",\n      \"horario_inicio\": \"1900-01-01T19:00:00\",\n      \"horario_fim\": \"1900-01-01T23:00:00\"  \n    },{\n      \"dia_inicio\": \"Sábado\",\n      \"dia_fim\": \"Domingo\",\n      \"horario_inicio\": \"1900-01-01T11:00:00\",\n      \"horario_fim\": \"1900-01-01T21:00:00\"  \n    }]\n}",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3025/api/user/restaurante/criar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3025",
+							"path": [
+								"api",
+								"user",
+								"restaurante",
+								"criar"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "Alterar Produto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7Il9pZCI6IjVmOGRhN2JlNGQ3YzUxMzFlNDc2MTM4MyJ9LCJleHAiOjE2MDMxMTk3NjQ1NzAsImlhdCI6MTYwMzExOTE2NH0.0jU1ocrO8l8EBzrV03fFtsQgM9o8vPwo06h81L7VXR4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "produto",
+									"value": "{\n    \"produtoId\": \"5f8e3f27708c3947d8a7088d\",\n    \"nome\": \"produto 3\",\n    \"categoria\": \"Bebidas\",\n    \"preco\": \"14.00\",\n    \"promocoes\": [{\n      \"descricao\": \"Aquela brejinha por 10 conto\",\n      \"preco\": \"10.00\",\n      \"dia\": \"Quinta\",\n      \"horario_inicio\": \"1900-01-01T19:00:00\",\n      \"horario_fim\": \"1900-01-01T23:00:00\"  \n    }, {\n      \"descricao\": \"De domingo pague 12\",\n      \"preco\": \"12.00\",\n      \"dia\": \"Domingo\",\n      \"horario_inicio\": \"1900-01-01T11:00:00\",\n      \"horario_fim\": \"1900-01-01T21:00:00\" \n    }]\n}",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/C:/Users/vitor/Desktop/goomer_lista_rango/imagens_teste_upload/produto1.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3025/api/user/produto/alterar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3025",
+							"path": [
+								"api",
+								"user",
+								"produto",
+								"alterar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Produto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7Il9pZCI6IjVmOGRhN2JlNGQ3YzUxMzFlNDc2MTM4MyJ9LCJleHAiOjE2MDMxMTk2MzgxNTMsImlhdCI6MTYwMzExOTAzOH0.9az_BJzkhAfQNHUXUJmMzETchXZ69N_kV6FjRVyhYgs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"produtoId\": \"5f8e25c0ab7d2b4ee44b0c86\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3025/api/user/produto/deletar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3025",
+							"path": [
+								"api",
+								"user",
+								"produto",
+								"deletar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Produto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7Il9pZCI6IjVmOGRhN2JlNGQ3YzUxMzFlNDc2MTM4MyJ9LCJleHAiOjE2MDMxMTk2MzgxNTMsImlhdCI6MTYwMzExOTAzOH0.9az_BJzkhAfQNHUXUJmMzETchXZ69N_kV6FjRVyhYgs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/C:/Users/vitor/Desktop/goomer_lista_rango/imagens_teste_upload/produto1.jpg"
+								},
+								{
+									"key": "produto",
+									"value": "{\n    \"restauranteId\": \"5f8e38b9d0065144b0bf5140\",\n    \"nome\": \"produto 3\",\n    \"categoria\": \"Bebidas\",\n    \"preco\": \"14.00\",\n    \"promocoes\": [{\n      \"descricao\": \"Aquela brejinha por 10 conto\",\n      \"preco\": \"10.00\",\n      \"dia\": \"Quinta\",\n      \"horario_inicio\": \"1900-01-01T19:00:00\",\n      \"horario_fim\": \"1900-01-01T23:00:00\"  \n    }, {\n      \"descricao\": \"De domingo pague 12\",\n      \"preco\": \"12.00\",\n      \"dia\": \"Domingo\",\n      \"horario_inicio\": \"1900-01-01T11:00:00\",\n      \"horario_fim\": \"1900-01-01T21:00:00\" \n    }]\n}\n",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3025/api/user/produto/criar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3025",
+							"path": [
+								"api",
+								"user",
+								"produto",
+								"criar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Produto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7Il9pZCI6IjVmOGRhN2JlNGQ3YzUxMzFlNDc2MTM4MyJ9LCJleHAiOjE2MDMxMTk3NjQ1NzAsImlhdCI6MTYwMzExOTE2NH0.0jU1ocrO8l8EBzrV03fFtsQgM9o8vPwo06h81L7VXR4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"restauranteId\": \"5f8e38b9d0065144b0bf5140\",\r\n    \"nome\": \"P\",\r\n    \"categoria\": \"\",\r\n    \"page\": 1,\r\n    \"pageSize\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3025/api/user/produto/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3025",
+							"path": [
+								"api",
+								"user",
+								"produto",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos Produto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7Il9pZCI6IjVmOGRhN2JlNGQ3YzUxMzFlNDc2MTM4MyJ9LCJleHAiOjE2MDMxMTk3NjQ1NzAsImlhdCI6MTYwMzExOTE2NH0.0jU1ocrO8l8EBzrV03fFtsQgM9o8vPwo06h81L7VXR4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3025/api/user/produto/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3025",
+							"path": [
+								"api",
+								"user",
+								"produto",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Produto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7Il9pZCI6IjVmOGRhN2JlNGQ3YzUxMzFlNDc2MTM4MyJ9LCJleHAiOjE2MDMxMTk3NjQ1NzAsImlhdCI6MTYwMzExOTE2NH0.0jU1ocrO8l8EBzrV03fFtsQgM9o8vPwo06h81L7VXR4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"produtoId\": \"5f8e3f27708c3947d8a7088d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3025/api/user/produto/obter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3025",
+							"path": [
+								"api",
+								"user",
+								"produto",
+								"obter"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "GridFS",
+			"item": [
+				{
+					"name": "Obter Imagens",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7Il9pZCI6IjVmOGRhN2JlNGQ3YzUxMzFlNDc2MTM4MyJ9LCJleHAiOjE2MDMxMTk3NjQ1NzAsImlhdCI6MTYwMzExOTE2NH0.0jU1ocrO8l8EBzrV03fFtsQgM9o8vPwo06h81L7VXR4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"foto\": \"1tmk5-q6a7s-zfmux-r2lrm-ptqqa.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3025/api/user/gridfs/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3025",
+							"path": [
+								"api",
+								"user",
+								"gridfs",
+								"get"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

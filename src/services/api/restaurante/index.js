@@ -4,7 +4,6 @@ const { criarRestauranteRepository, listarRestaurantesRepository, listarRestaura
   { formatDate, projectRoot, removeUploadedFile, validarIntervalosDeHorario } = require('../../../utils');
 
 exports.criarRestaurante = async (body, files) => {
-
   if (!body || !body.restaurante) {
     throw { msg: 'Informações faltantes' };
   }
@@ -42,6 +41,10 @@ exports.criarRestaurante = async (body, files) => {
 exports.listarRestaurante = async () => await listarRestaurantesRepository();
 
 exports.listarRestaurantePaginacao = async ({ nome, page, pageSize }) => {
+  page = (page) ? page : 1;
+  pageSize = (pageSize) ? pageSize : 1;
+  nome = (nome) ? nome : '';
+
   let registros = (await listarRestaurantesPaginacaoRepository(nome, page, pageSize))[0];
 
   registros.restaurantes.map(restaurante => {
@@ -69,6 +72,7 @@ exports.obterRestaurante = async ({ restauranteId }) => {
   }) : [];
 
   return {
+    _id: restaurante._id,
     nome: restaurante.nome,
     endereco: restaurante.endereco,
     foto: restaurante.foto,
@@ -83,7 +87,7 @@ exports.alterarRestaurante = async (body, files) => {
 
   let { restauranteId, nome, foto, endereco, horarios_funcionamento } = JSON.parse(body.restaurante);
 
-  if (!nome) {
+  if (!nome || !restauranteId) {
     throw { msg: 'Informações faltantes' };
   }
 
@@ -97,6 +101,10 @@ exports.alterarRestaurante = async (body, files) => {
         break;
       }
     }
+  }
+
+  if (!horarios_funcionamento) {
+    horarios_funcionamento = [];
   }
 
   if (horarioIncorreto) {
@@ -114,6 +122,9 @@ exports.alterarRestaurante = async (body, files) => {
 };
 
 exports.deletarRestaurante = async ({restauranteId}) => {
+  if (!restauranteId) {
+    throw { msg: 'Informações faltantes' };
+  }
   deletarRestauranteRepository(restauranteId);
   return true;
 };

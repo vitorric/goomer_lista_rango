@@ -3,11 +3,9 @@ const { Restaurante } = require('../../schemas/restaurante'),
 
 
 exports.criarRestauranteRepository = async restaurante => {
-  try {
-    return Restaurante.create(restaurante).catch(error => console.log(error));
-  } catch (error) {
+  return Restaurante.create(restaurante).catch(error => {
     console.log('Error in criarRestauranteRepository: ', error);
-  }
+  });
 };
 
 exports.obterRestauranteRepository = restauranteId => {

@@ -35,7 +35,7 @@ Instale o [nodemon](https://www.npmjs.com/package/nodemon) para rodar a API, par
 
   
 
-npm i g nodemon
+`npm i g nodemon`
 
   
 
@@ -59,8 +59,6 @@ npm i g nodemon
 
 Execute o comando `apidoc -i src/ -o apidoc/` para gerar a documentação da API. O arquivo da documentação é um **index.html** fica dentro da pasta **apidoc**
 
-  
-
 # Testes
 
 Para realizar o teste da API, execute o comando:
@@ -72,6 +70,7 @@ Para realizar um teste de cobertura, execute o comando:
 `npm run test-cover`
 
 Abra o **index.html** dentro da pasta **covarage** pra verificar o que de código foi testado
+
 Abra o **index.html** dentro da pasta **mochawesome-report** para verificar detalhadamente os testes rodados.
 
 # Arquivo Postman

@@ -42,7 +42,7 @@ exports.listarRestaurante = async () => await listarRestaurantesRepository();
 
 exports.listarRestaurantePaginacao = async ({ nome, page, pageSize }) => {
   page = (page) ? page : 1;
-  pageSize = (pageSize) ? pageSize : 1;
+  pageSize = (pageSize) ? pageSize : 24;
   nome = (nome) ? nome : '';
 
   let registros = (await listarRestaurantesPaginacaoRepository(nome, page, pageSize))[0];

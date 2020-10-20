@@ -1,18 +1,18 @@
-const { Restaurante } = require('../../../../../src/schemas/restaurante');
+const { Produto } = require('../../../../../src/schemas/produto');
 
 module.exports = async (expect, request, app) => {
-  describe('File /routes/user/restaurante/deletar', () => {
+  describe('File /routes/user/produto/deletar', () => {
 
-    describe('Service - /DELETE restaurante.deletarRestaurante', () => {
+    describe('Service - /DELETE produto.deletarproduto', () => {
 
-      let restaurante;
+      let produto;
       beforeEach(async () => {
-        restaurante = await Restaurante.findOne({}).exec();
+        produto = await Produto.findOne({}).exec();
       });
 
-      it('Sem RestauranteId', (done) => {
+      it('Sem produtoId', (done) => {
         request(app)
-          .delete('/api/user/restaurante/deletar')
+          .delete('/api/user/produto/deletar')
           .set('content-type', 'application/json')
           .set('Authorization', global.tokenUser)
           .send()
@@ -29,10 +29,10 @@ module.exports = async (expect, request, app) => {
 
       it('Sucesso', (done) => {
         request(app)
-          .delete('/api/user/restaurante/deletar')
+          .delete('/api/user/produto/deletar')
           .set('content-type', 'application/json')
           .set('Authorization', global.tokenUser)
-          .send({restauranteId: restaurante._id.toString()})
+          .send({produtoId: produto._id.toString()})
           .expect(200)
           .end((err, res) => {
             if (err) return done(err);

@@ -36,5 +36,16 @@ require('./routes/user/restaurante/listar-todos')(expect, request, app);
 require('./routes/user/restaurante/obter')(expect, request, app);
 require('./routes/user/restaurante/deletar')(expect, request, app);
 
+// -------- Produto
+require('./routes/user/produto/criar')(expect, request, app);
+require('./routes/user/produto/alterar')(expect, request, app);
+require('./routes/user/produto/listar')(expect, request, app);
+require('./routes/user/produto/listar-todos')(expect, request, app);
+require('./routes/user/produto/obter')(expect, request, app);
+require('./routes/user/produto/deletar')(expect, request, app);
+
+// -------- Produto
+require('./routes/user/gridfs/get')(expect, request, app);
+
 // // Services
 // require('./services')(expect, request, app);

@@ -54,26 +54,34 @@ exports.criarProduto = async (body, files) => {
 };
 
 exports.listarProdutoPaginacao = async ({ restauranteId, nome, categoria, page, pageSize }) => {
+  const returnDefault = {
+    metadata: {
+      page,
+      total: 0
+    },
+    produtos: []
+  };
   if (!restauranteId) {
-    return {
-      metadata: {
-        page,
-        total: 0
-      },
-      produtos: []
-    };
+    return returnDefault;
   }
+
+  page = (page) ? page : 1;
+  pageSize = (pageSize) ? pageSize : 24;
+  nome = (nome) ? nome : '';
+  categoria = (categoria) ? categoria : '';
 
   const registros = (await listarProdutosPaginacaoRepository(restauranteId, nome, categoria, page, pageSize))[0];
 
-  registros.produtos.map(produto => {
-    produto.promocoes.map(promocao => {
-      promocao.horario_inicio = formatDate(promocao.horario_inicio);
-      promocao.horario_fim = formatDate(promocao.horario_fim);
+  if (registros) {
+    registros.produtos.map(produto => {
+      produto.promocoes.map(promocao => {
+        promocao.horario_inicio = formatDate(promocao.horario_inicio);
+        promocao.horario_fim = formatDate(promocao.horario_fim);
+      });
     });
-  });
+  }
 
-  return registros;
+  return (registros) ? registros : returnDefault;
 };
 
 exports.listarProduto = async () => await listarProdutosRepository();
@@ -84,10 +92,13 @@ exports.obterProduto = async ({ produtoId }) => {
   }
 
   let produtoRetorno = (await obterProdutoRepository(produtoId))[0];
-  produtoRetorno.promocoes.map(promocao => {
-    promocao.horario_inicio = formatDate(promocao.horario_inicio);
-    promocao.horario_fim = formatDate(promocao.horario_fim);
-  });
+
+  if (produtoRetorno) {
+    produtoRetorno.promocoes.map(promocao => {
+      promocao.horario_inicio = formatDate(promocao.horario_inicio);
+      promocao.horario_fim = formatDate(promocao.horario_fim);
+    });
+  }
 
   return produtoRetorno;
 };
@@ -126,6 +137,10 @@ exports.alterarProduto = async (body, files) => {
 };
 
 exports.deletarProduto = async ({produtoId}) => {
+  if (!produtoId) {
+    throw { msg: 'Informações faltantes' };
+  }
+
   deletarProdutoRepository(produtoId);
   return true;
 };

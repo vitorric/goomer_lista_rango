@@ -1,5 +1,5 @@
 module.exports = async (expect, request, app) => {
-  describe('File /routes/user/restaurante/listar.js', () => {
+  describe('File /routes/user/restaurante/listar', () => {
 
     describe('Service - /POST restaurante.listarRestaurantePaginacao', () => {
 

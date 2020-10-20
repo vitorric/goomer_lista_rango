@@ -1,18 +1,18 @@
-const { Restaurante } = require('../../../../../src/schemas/restaurante');
+const { Produto } = require('../../../../../src/schemas/produto');
 
 module.exports = async (expect, request, app) => {
-  describe('File /routes/user/restaurante/deletar', () => {
+  describe('File /routes/user/gridfs/get', () => {
 
-    describe('Service - /DELETE restaurante.deletarRestaurante', () => {
+    describe('Service - /POST gridfs.getImageGridFS', () => {
 
-      let restaurante;
+      let produto;
       beforeEach(async () => {
-        restaurante = await Restaurante.findOne({}).exec();
+        produto = await Produto.findOne({ foto: { $exists: true } }).exec();
       });
 
-      it('Sem RestauranteId', (done) => {
+      it('Sem Foto', (done) => {
         request(app)
-          .delete('/api/user/restaurante/deletar')
+          .post('/api/user/gridfs/get')
           .set('content-type', 'application/json')
           .set('Authorization', global.tokenUser)
           .send()
@@ -29,15 +29,15 @@ module.exports = async (expect, request, app) => {
 
       it('Sucesso', (done) => {
         request(app)
-          .delete('/api/user/restaurante/deletar')
+          .post('/api/user/gridfs/get')
           .set('content-type', 'application/json')
           .set('Authorization', global.tokenUser)
-          .send({restauranteId: restaurante._id.toString()})
+          .send({foto: produto.foto})
           .expect(200)
           .end((err, res) => {
             if (err) return done(err);
             expect(res.body.sucesso).to.be.true;
-            expect(res.body.retorno).to.be.true;
+            expect(res.body.retorno).to.be.an('string');
             done();
           });
       });

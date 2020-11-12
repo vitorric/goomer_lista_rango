@@ -1,9 +1,9 @@
 
-# Goomer Lista Rango API
+# Restaurante Lista API
 
   
 
-API do Goomer Lista Rango, desenvolvida em NodeJS juntamente com o MongoDB.
+API do Restaurante Lista desenvolvida em NodeJS juntamente com o MongoDB.
 
   
 
